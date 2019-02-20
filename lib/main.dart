@@ -9,6 +9,9 @@ class FlutterLearnApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter learn',
       home: RandomWords(),
+      theme: new ThemeData(
+        primaryColor: Colors.white,
+      ),
     );
   }
 }
