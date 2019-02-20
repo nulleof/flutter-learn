@@ -6,8 +6,6 @@ void main() => runApp(FlutterLearnApp());
 class FlutterLearnApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
-
     return MaterialApp(
       title: 'Flutter learn',
       home: Scaffold(
@@ -15,9 +13,25 @@ class FlutterLearnApp extends StatelessWidget {
           title: Text('Learn flutter list')
         ),
         body: Center(
-          child: Text(wordPair.asPascalCase),
+          child: RandomWords(),
         ),
       ),
     );
   }
+}
+
+
+
+
+class RandomWordState extends State<RandomWords> {
+  @override
+  Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
+  }
+}
+
+class RandomWords extends StatefulWidget {
+  @override
+  RandomWordState createState() => new RandomWordState();
 }
