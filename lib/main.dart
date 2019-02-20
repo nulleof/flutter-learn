@@ -19,12 +19,19 @@ class FlutterLearnApp extends StatelessWidget {
 class RandomWordState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
+  final _saved = new Set<WordPair>();
 
   Widget _buildRow(WordPair suggestion) {
+    final alreadySaved = _saved.contains(suggestion);
+
     return ListTile(
       title: Text(
         suggestion.asPascalCase,
         style: _biggerFont,
+      ),
+      trailing: new Icon(
+        alreadySaved ? Icons.favorite : Icons.favorite_border,
+        color: alreadySaved ? Colors.red : null,
       ),
     );
   }
